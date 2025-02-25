@@ -42,14 +42,13 @@ if (transactions.length === 0) {
   process.exit(1);
 }
 
-// TODO: Before creating the funFacts array, define the following variables:
-// - totalTransactions: Total number of transactions (use array length).
-// - totalSum: Sum of all transactions (use addUpArrayElements function).
-// - averageTransaction: Average transaction value (calculate using totalSum and totalTransactions).
-// - totalIncome: Sum of all positive transactions.
-// - totalExpenses: Sum of all negative transactions.
-// - netBalance: Total of totalIncome and totalExpenses.
-
+//  Calculations:
+const totalTransactions = transactions.length;
+const totalSum = addUpArrayElements(transactions);
+const averageTransaction = totalSum / totalTransactions;
+const totalIncome = addUpArrayElements(transactions.filter(transaction => transaction > 0));
+const totalExpenses = addUpArrayElements(transactions.filter(transaction => transaction < 0));
+const netBalance = totalIncome + totalExpenses;
 
 // Create an array of fun fact rows. Each row is a two-element array: [Fact, Value].
 const funFacts = [
